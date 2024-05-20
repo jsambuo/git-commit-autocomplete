@@ -1,71 +1,126 @@
-# git-commit-autocomplete README
+# Git Commit Autocomplete
 
-This is the README for your extension "git-commit-autocomplete". After writing up a brief description, we recommend including the following sections.
+Git Commit Autocomplete is a Visual Studio Code extension that helps you generate git commit messages using OpenAI's GPT-3.5-turbo. The extension analyzes your changes and suggests a commit message based on the modifications made.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- AI-powered commit message suggestions
+- Seamless integration with VSCode
+- User prompts for accepting or rejecting suggested commit messages
+- Configurable OpenAI API key
+- Error handling for rate limiting and missing API key
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code
+- An OpenAI API key (Sign up at [OpenAI](https://platform.openai.com/api-keys) to get an API key)
 
-## Extension Settings
+## Installation
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. Clone the repository:
 
-For example:
+```bash
+git clone https://github.com/jsambuo/git-commit-autocomplete.git
+```
 
-This extension contributes the following settings:
+2. Navigate to the extension directory:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```bash
+cd git-commit-autocomplete
+```
 
-## Known Issues
+3. Install the dependencies:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```bash
+npm install
+```
 
-## Release Notes
+4. Compile the extension:
 
-Users appreciate release notes as you update your extension.
+```bash
+npm run compile
+```
 
-### 1.0.0
+5. Open the extension in VSCode:
 
-Initial release of ...
+```bash
+code .
+```
 
-### 1.0.1
+6. Press `F5` to open a new VSCode window with the extension loaded.
 
-Fixed issue #.
+## Configuration
 
-### 1.1.0
+1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
+2. Type `Open Settings (JSON)` and select it.
+3. Add the following configuration to set your OpenAI API key:
 
-Added features X, Y, and Z.
+```json
+"gitCommitAutocomplete.apiKey": "your-openai-api-key"
+```
 
----
+Replace `your-openai-api-key` with your actual OpenAI API key.
 
-## Following extension guidelines
+## Usage
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+1. Make some changes to your git repository.
+2. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
+3. Type `Suggest Commit Message` and select it.
+4. If there are changes, the extension will suggest a commit message based on the modifications.
+5. You can accept the suggested commit message to automatically commit your changes.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+## Error Handling
 
-## Working with Markdown
+- If the API key is not set, the extension will prompt you to configure it in the settings.
+- If the rate limit is exceeded, a specific error message will inform you to wait before trying again.
+- If there are no changes to commit, the extension will display a message and skip the API call.
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+## Development
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+To contribute or modify this extension, follow these steps:
 
-## For more information
+1. Clone the repository:
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+```bash
+git clone https://github.com/jsambuo/git-commit-autocomplete.git
+```
 
-**Enjoy!**
+2. Navigate to the extension directory:
+
+```bash
+cd git-commit-autocomplete
+```
+
+3. Install the dependencies:
+
+```bash
+npm install
+```
+
+4. Compile the extension:
+
+```bash
+npm run compile
+```
+
+5. Open the extension in VSCode:
+
+```bash
+code .
+```
+
+6. Press `F5` to open a new VSCode window with the extension loaded.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [OpenAI](https://openai.com) for providing the AI models used in this extension.
+- [Simple-Git](https://github.com/steveukx/git-js) for simplifying git commands in Node.js.
+- [Axios](https://github.com/axios/axios) for handling HTTP requests.
+
+## Contact
+
+For any questions or feedback, please open an issue on the [GitHub repository](https://github.com/jsambuo/git-commit-autocomplete).
